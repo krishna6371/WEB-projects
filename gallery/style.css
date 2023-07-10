@@ -1,0 +1,87 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#wrapper{
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.container{
+	height:100%;
+	max-width: 1200px;
+/* for center we use margin */
+	margin: 0 auto;
+	padding: 20px;
+	/* border or content ka bitch ka place ku padding kehete hain */
+}
+.container h1{
+	 margin: 20px 0;
+	 text-align: center;
+	 margin-bottom: 20px;
+	 font-size: 3rem;
+}
+.gallery{
+	/* for spacing we use flex */
+	display:flex;
+	/* flex wrap nahi karenge to sare element ek hi row main aa jayenge */
+	flex-wrap: wrap;
+	justify-content: space-between; 
+	
+}
+.card{
+	 width:32%;
+	 /* for image overlapping absolute  becayse 
+	 all images are overloaded*/
+	 margin-bottom: 20px;
+	 /* this border radious rounds the element */
+	 border-radius: 10px;
+	 overflow: hidden;
+}
+.card img{
+	/* to make like square type */
+	width: 100%;
+	/* starting re black and white achi sethipain filter */
+    filter: grayscale(100%);
+	box-shadow: 0 0 20px #333;
+	/* */
+	height: 100%;
+	object-fit: cover;
+}
+.card:hover{
+	/* jab bi hover karna hoga to card ka size: bada ho jana chahihe; */
+	transform: scale(1.03);
+	transition: 0.5s;
+	/* abhi phir shadow dene keliye use karna padega */
+	filter: drop-shadow(0 0 1px #333);
+
+}
+.card:hover img{
+	filter: grayscale(0%);
+
+}
+.card figcaption{
+position: absolute;
+bottom: 0;
+left: 0;
+padding: 25px;
+	width:100%;
+	/* ye jo width he na ye hoga card ka matlab parent class ka */
+	height: 20%;
+	/* ye bi parent ka height */
+	font-size: 16px;
+	font-weight: 500;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     color: #fff;
+	 opacity: 0;
+	 /* opacity 0 matlab image nahi dikhega */
+     border-radius: 0 0 10px 10px;
+	 background: linear-gradient(0deg, rgba(0,0,0,0.5)0%,rgba(255,255,255,0)100%);
+	 transition: 0.3s;
+}
+.card:hover figcaption{
+	opacity: 1;
+	transform: scale(1.03);
+}
+
